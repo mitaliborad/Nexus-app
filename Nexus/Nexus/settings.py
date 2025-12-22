@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'account',
     'rest_framework',
-    'rest_framework_simplejwt.token_blacklist',
 ]
 
 MIDDLEWARE = [
@@ -51,15 +50,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
-from datetime import timedelta
-SIMPLE_JWT = {
-    "ACCESS_TOKEN_LIFETIME": timedelta(days=10),
-    "REFRESH_TOKEN_LIFETIME": timedelta(days=30),
-}
-
-AUTH_USER_MODEL = 'account.User'
-
 
 ROOT_URLCONF = 'Nexus.urls'
 
