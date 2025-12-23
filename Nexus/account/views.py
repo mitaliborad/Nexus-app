@@ -9,7 +9,6 @@ from .serializers import UserSerializer
 class UserCreateView(generics.CreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    renderer_classes = [JSONRenderer]
 
 
 
