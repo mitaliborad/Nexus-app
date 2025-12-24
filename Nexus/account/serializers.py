@@ -40,7 +40,6 @@ class LoginSerializer(serializers.ModelSerializer):
             'refresh' : user.tokens()['refresh'],
             'access' : user.tokens()['access']
         }
-    
     class Meta :
          model = User
          fields = ['email', 'password', 'tokens']
@@ -58,6 +57,18 @@ class LoginSerializer(serializers.ModelSerializer):
             'tokens' : user.tokens
         }
     
+class LogoutSerializer(serializers.Serializer):
+    refresh = serializers.CharField()
+    def validate(self, attrs):
+        self.token = attrs['refresh']
+        return attrs
+    
+    def save(self, **kwargs):
+        try:
+            RefreshToken(self.token).blacklist()
+        except TokenError:
+            self.fail('bad token')  
+        print("Logout")
 
 
 

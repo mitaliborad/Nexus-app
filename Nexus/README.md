@@ -14,3 +14,10 @@ Summary steps (do in order):
 - in the url define Login url which has permission AllowAny and check register data match email and password and provide jwt token.
 - http://127.0.0.1:8000/account/login
  - created a homwview for verify jwt token verification
+
+**Logout Page API**
+- At the Logout serializer i added a refresh field and according to that field it will find the user and after that according to that it will blacklist that refresh token 
+- also added ROTATE_REFRESH_TOKENS for blacklisting previos token after refresh a token.
+- also added refresh token api and url path for get a new token
+- http://127.0.0.1:8000/account/refresh
+- http://127.0.0.1:8000/account/logout
