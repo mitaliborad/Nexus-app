@@ -21,3 +21,13 @@ Summary steps (do in order):
 - also added refresh token api and url path for get a new token
 - http://127.0.0.1:8000/account/refresh
 - http://127.0.0.1:8000/account/logout
+
+**User Profile API**
+- authentication required
+- first of at account.user model i ave http://127.0.0.1:8000/profile/1/added two fields like bio and profile picture fields which are allow to null
+- also added Multipartparsers for parse image and form data in settings
+- after that created a Userprofile serializer and define serializer method field for return name from the email
+- and created a userprofile view using RetrieveUpdateDestroyAPIView generic 
+- also in the url path add primary key that's why using primary key user can update the data
+- images are saving in the profile_pictures folder.
+- http://127.0.0.1:8000/profile/1/

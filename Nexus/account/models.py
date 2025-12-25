@@ -6,6 +6,8 @@ from rest_framework_simplejwt.tokens import RefreshToken
 class User(AbstractUser):
     username = None
     email = models.EmailField(("email address"), unique=True)
+    bio = models.TextField(blank=True, null=True)
+    profile_picture = models.ImageField(upload_to='profile_pictures/', blank=True, null=True)   
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
