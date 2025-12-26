@@ -1,6 +1,9 @@
-# Nexus-app
+# Nexus-app : Social Media Application
 Summary steps (do in order):
+1. clone the repository and create a virtual environment and activate it 
+2. set .env from .env.example and run the server using command : python manage.py runserver
 
+## Register 
 **Register Page API**
 - CustomUserManager is created with email required with password
 - User Model created with delete username field from default BaseUser and override email as a username.
@@ -8,6 +11,7 @@ Summary steps (do in order):
 - give a path /account/register 
 - http://127.0.0.1:8000/account/register
 
+## Login 
 **Login Page API**
 - In the user model i have created a tokens function to assign the user with Refresh and Access Tokens
 - i have created a LoginSerializer with email verification and check that account is active - after confirm assign a jwt token to the user 
@@ -15,6 +19,7 @@ Summary steps (do in order):
 - http://127.0.0.1:8000/account/login
  - created a homwview for verify jwt token verification
 
+## Logout
 **Logout Page API**
 - At the Logout serializer i added a refresh field and according to that field it will find the user and after that according to that it will blacklist that refresh token 
 - also added ROTATE_REFRESH_TOKENS for blacklisting previos token after refresh a token.
@@ -22,6 +27,7 @@ Summary steps (do in order):
 - http://127.0.0.1:8000/account/refresh
 - http://127.0.0.1:8000/account/logout
 
+## User Profile
 **User Profile API**
 - authentication required
 - first of at account.user model i ave http://127.0.0.1:8000/profile/1/added two fields like bio and profile picture fields which are allow to null
@@ -31,3 +37,12 @@ Summary steps (do in order):
 - also in the url path add primary key that's why using primary key user can update the data
 - images are saving in the profile_pictures folder.
 - http://127.0.0.1:8000/profile/1/
+
+## Post
+
+**Create Post**
+- i have created a new post model in new app post and define many-to-one relationship from user model.
+- also i have added a filefield in media field so user can upload a post as image or video whatever they want and in the serializer class i have added a validate data logic which will handle the file upload types like jpeg, mp4,etc...
+- also in serializers intialize a new field called username which use serializer method and return a username from the user model.
+- for create and list vies i have used ListCreateAPIView.
+- so when user will create a post that will return a related username also.
