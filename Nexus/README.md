@@ -45,4 +45,7 @@ Summary steps (do in order):
 - also i have added a filefield in media field so user can upload a post as image or video whatever they want and in the serializer class i have added a validate data logic which will handle the file upload types like jpeg, mp4,etc...
 - also in serializers intialize a new field called username which use serializer method and return a username from the user model.
 - for create and list vies i have used ListCreateAPIView.
-- so when user will create a post that will return a related username also.
+- so when user will create a post that will return a related username also : http://127.0.0.1:8000/post/create/
+
+**Get Feed**
+- for show a feed i have added a read logic in ListCreateAPIView and also simply get all objects with order by latest created at and added a path : http://127.0.0.1:8000/post/feed/

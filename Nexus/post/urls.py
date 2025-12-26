@@ -3,4 +3,5 @@ from .views import PostCreateReadView
 
 urlpatterns = [
     path('create/', PostCreateReadView.as_view(), name='post-create'),
+    path('feed/', PostCreateReadView.as_view(), name='post-list'),
 ]
