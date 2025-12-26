@@ -49,3 +49,6 @@ Summary steps (do in order):
 
 **Get Feed**
 - for show a feed i have added a read logic in ListCreateAPIView and also simply get all objects with order by latest created at and added a path : http://127.0.0.1:8000/post/feed/
+
+**Update-Delete Post**
+- i have added RetrieveUpdateDestroyAPIView which will contains logic of put, patch, delete and also added url path , in the url path i have added primary key also.

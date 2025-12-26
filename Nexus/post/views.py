@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .models import Post
 from account.models import User
 from .serializers import PostSerializer
-from rest_framework.generics import ListCreateAPIView
+from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 
 # Create your views here.
 class PostCreateReadView(ListCreateAPIView):
@@ -13,6 +13,9 @@ class PostCreateReadView(ListCreateAPIView):
 
     def get_queryset(self):
         return Post.objects.all().order_by('-uploaded_at')
-
-
+    
+class PostUpdateDeleteView(RetrieveUpdateDestroyAPIView):
+    serializer_class = PostSerializer
+    queryset = Post.objects.all()
+    lookup_field = 'id'
 
