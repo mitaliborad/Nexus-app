@@ -52,3 +52,8 @@ Summary steps (do in order):
 
 **Update-Delete Post**
 - i have added RetrieveUpdateDestroyAPIView which will contains logic of put, patch, delete and also added url path , in the url path i have added primary key also.
+
+## Like
+- first of all create a model for like post and define user and post model using forign key
+- after that add fields in serializer and validate the data and also add function for user likes count
+- in the views use ListCreateAPIView and define post method in it and add the logic for like , likes count and dislike
