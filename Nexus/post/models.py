@@ -11,5 +11,15 @@ class Post(models.Model):
     def __str__(self):
         return f'Post by {self.user.email} at {self.uploaded_at}'
     
+class Like(models.Model):
+    post_id = models.ForeignKey(Post, on_delete=models.CASCADE)
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
+    like = models.BooleanField(default=True)
+    liked_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'Like by {self.user_id.email} on Post ID {self.post_id.id}'
+
+    
 
 
