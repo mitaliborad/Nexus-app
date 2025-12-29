@@ -23,4 +23,5 @@ urlpatterns = [
     path('', HomeView.as_view(), name='home' ),
     path('account/', include('account.urls')),
     path('profile/', include('Profile.urls')),
+    path('post/', include('post.urls')),
 ]
