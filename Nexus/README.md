@@ -37,6 +37,7 @@ Summary steps (do in order):
 - also in the url path add primary key that's why using primary key user can update the data
 - images are saving in the profile_pictures folder.
 - http://127.0.0.1:8000/profile/1/
+- also add liked_post and created_post fields using serializer method fields for show user to liked_posts and created_posts by that particular user.
 
 ## Post
 
@@ -57,3 +58,7 @@ Summary steps (do in order):
 - first of all create a model for like post and define user and post model using forign key
 - after that add fields in serializer and validate the data and also add function for user likes count
 - in the views use ListCreateAPIView and define post method in it and add the logic for like , likes count and dislike
+
+## Comment
+- create a comment model which has fields like post_id , content - so user can podt a comment using post id and also create a total counts serializer field which will count the total numbers of comments of that post
+
