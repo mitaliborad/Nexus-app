@@ -8,7 +8,7 @@ class CommentSerializer(serializers.ModelSerializer):
     total_comments = serializers.SerializerMethodField()
 
     def get_username(self, obj):
-        return User.objects.get(id=obj.user_id.id).username
+        return obj.user_id.username
 
     class Meta:
         model = Comment
